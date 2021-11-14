@@ -4,30 +4,38 @@
  *  Created on: Oct 14, 2021
  *      Author: oasdflkjo
  * 
- * Implemntation of a fifo data structure to store characters
+ * Implementation of a static stack to store characters.
+ * Using int returns on functions 0 meaning succesfull operation
+ * and 1 meaning error.
+ * 
+ * Creating stack does not initialise the array with anything so 
+ * it will contain random chars.
  */
 
 #include <stdio.h>
 
 #include "stack.h"
 
-// TODO
-// prolly could be done using with pointer that points to the current element
-// null handle
-// location can go negative
-// location can grow bigger than the max stack size
-
 int push_to_array_stack(array_stack *stack, char character)
 {
-    stack->array[stack->location] = character;
-    stack->location++;
-    return 0;
+    // are all these checks nesessary?
+    if (stack->location < MAX_STACK_SIZE && stack != NULL && &character != NULL)
+    {
+        stack->array[stack->location] = character;
+        stack->location++;
+        return 0;
+    }
+    return 1;
 }
 
 int pop_from_array_stack(array_stack *stack)
 {
-    stack->location--;
-    return 0;
+    if (stack->location != 0 && stack != NULL)
+    {
+        stack->location--;
+        return 0;
+    }
+    return 1;
 }
 
 int print_current_stack(array_stack *stack)
