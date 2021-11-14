@@ -10,7 +10,8 @@ typedef struct
 {
     char array[MAX_STACK_SIZE];
     int location;
-} stack_storage;
+} array_stack;
 
-int push_to_stack_storage(stack_storage *stack, char character);
+int push_to_array_stack(array_stack *stack, char character);
+int pop_from_array_stack(array_stack *stack);
 int main(void);

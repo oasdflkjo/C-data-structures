@@ -17,36 +17,37 @@
 // location can go negative
 // location can grow bigger than the max stack size
 
-int push_to_stack_storage(stack_storage *stack, char character)
+int push_to_array_stack(array_stack *stack, char character)
 {
     stack->array[stack->location] = character;
     stack->location++;
     return 0;
 }
 
-int pop_from_stack_storage(stack_storage *stack)
+int pop_from_array_stack(array_stack *stack)
 {
     stack->location--;
     return 0;
 }
 
-int print_current_stack(stack_storage *stack)
+int print_current_stack(array_stack *stack)
 {
     for (int i = 0; i < stack->location; i++)
     {
         printf("%c", stack->array[i]);
     }
+    printf("\n");
     return 0;
 }
 
 int main(void)
 {
-    stack_storage stack;
+    array_stack stack;
     stack.location = 0;
-    push_to_stack_storage(&stack, 'a');
-    push_to_stack_storage(&stack, 'b');
-    push_to_stack_storage(&stack, 'c');
-    pop_from_stack_storage(&stack);
+    push_to_array_stack(&stack, 'a');
+    push_to_array_stack(&stack, 'b');
+    push_to_array_stack(&stack, 'c');
+    pop_from_array_stack(&stack);
     print_current_stack(&stack);
 
     return 0;
