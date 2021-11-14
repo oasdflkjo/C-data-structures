@@ -18,8 +18,8 @@
 
 int push_to_array_stack(array_stack *stack, char character)
 {
-    // are all these checks nesessary?
-    if (stack->location < MAX_STACK_SIZE && stack != NULL && &character != NULL)
+    // are all these checks nesessary? how to deal with null characters???
+    if (stack->location < MAX_STACK_SIZE && stack != NULL)
     {
         stack->array[stack->location] = character;
         stack->location++;
