@@ -48,15 +48,15 @@ int print_current_stack(array_stack *stack)
     return 0;
 }
 
+// test function for the "class"
 int main(void)
 {
     array_stack stack;
     stack.location = 0;
-    push_to_array_stack(&stack, 'a');
-    push_to_array_stack(&stack, 'b');
-    push_to_array_stack(&stack, 'c');
-    pop_from_array_stack(&stack);
-    print_current_stack(&stack);
-
+    printf("%d\n", push_to_array_stack(&stack, 'a'));
+    printf("%d\n", push_to_array_stack(&stack, 'b'));
+    printf("%d\n", push_to_array_stack(&stack, 'v'));
+    printf("%d\n", pop_from_array_stack(&stack));
+    printf("%d\n", print_current_stack(&stack));
     return 0;
 }
