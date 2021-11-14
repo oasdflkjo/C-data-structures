@@ -18,8 +18,9 @@
 
 int push_to_array_stack(array_stack *stack, char character)
 {
-    // are all these checks nesessary? how to deal with null characters???
-    if (stack->location < MAX_STACK_SIZE && stack != NULL)
+    // TODO so apparently struct is never null so how should i do error checks?
+    // how to deal with bad inputs? do i even need to know that the array exists?
+    if (stack->location < MAX_STACK_SIZE)
     {
         stack->array[stack->location] = character;
         stack->location++;
