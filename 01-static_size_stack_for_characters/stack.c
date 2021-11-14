@@ -31,7 +31,7 @@ int push_to_array_stack(array_stack *stack, char character)
 
 int pop_from_array_stack(array_stack *stack)
 {
-    if (stack->location != 0 && stack != NULL)
+    if (stack->location != 0)
     {
         stack->location--;
         return 0;
