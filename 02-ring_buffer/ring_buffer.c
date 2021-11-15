@@ -5,8 +5,7 @@
  *      Author: oasdflkjo
  * 
  * Ring buffer implementation that i had to make for school assignment.
- * TODO: 
- * include guards
+ * 
  */
 
 #include <stdio.h>

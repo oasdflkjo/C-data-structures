@@ -4,11 +4,8 @@
  *  Created on: Oct 15, 2021
  *      Author: oasdflkjo
  * 
- * i just have to say that the essignment instructions are not very clear
- * and just by following them this becomes so messy because
- * 
- * TODO:
- * Currently stuck with the problem that buffer 
+ * I just have to say that the assignment instructions are not very clear
+ * and just by following them this becomes so messy.
  */
 #include <stdio.h>
 #include <stdint.h>
@@ -42,9 +39,6 @@ typedef struct
     int error;
 } error_type;
 
-// TODO how to solve this? Currently i don't know how error_type is supposed to be defined
-// should error_type be something else than struct?
-
 /* 
     initializes the buffer, by placing the pointers to beginning of buffer
     test with
@@ -67,10 +61,6 @@ void init_buffer(buffer_type *b, unsigned char *buffer);
 
     Only OK as a return value is used in this function
  */
-
-// TODO this does not work cos i got no idea on what error_type is supposed to be
-// so is the teacher giving me a bad assignement? or whats up with the error_type?
-// can it be enum and a struct at the same time.
 enum error_type empty_buffer(buffer_type *b);
 
 /*
