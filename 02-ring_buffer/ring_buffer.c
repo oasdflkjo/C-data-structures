@@ -15,18 +15,17 @@ void init_buffer(buffer_type *b, unsigned char *buffer)
 {
     b->head = buffer;
     b->tail = buffer;
+    b->buffer = buffer;
 }
 
-// If this problem is the point of this assignment, then i guess its a good one.
-// But if its not then this is imo very bad assignment.
-enum error_type empty_buffer(buffer_type *b)
+error_type_t empty_buffer(buffer_type *b)
 {
-    enum error_type error;
+    error_type_e error;
     error = OK;
     return error;
 }
 
-int get_buffer_state(buffer_type *b, error_type *err)
+int get_buffer_state(buffer_type *b, error_type_t *err)
 {
     if (b->head == b->tail)
     {
@@ -34,7 +33,7 @@ int get_buffer_state(buffer_type *b, error_type *err)
     }
     else if (b->head > b->tail)
     {
-        err->error = BUF_FULL;
+        *err = BUFF_FULL;
         return 1;
     }
     else
@@ -43,7 +42,7 @@ int get_buffer_state(buffer_type *b, error_type *err)
     }
 }
 
-int add_char_to_buffer(buffer_type *b, unsigned char c, error_type *err)
+int add_char_to_buffer(buffer_type *b, unsigned char c, error_type_t *err)
 {
     if (get_buffer_state(b, err) == 0)
     {
@@ -57,12 +56,12 @@ int add_char_to_buffer(buffer_type *b, unsigned char c, error_type *err)
     }
     else
     {
-        err->error = BUF_FULL;
+        *err = BUF_FULL;
         return -1;
     }
 }
 
-char get_char_from_buffer(buffer_type *b, error_type *err)
+char get_char_from_buffer(buffer_type *b, error_type_t *err)
 {
     if (get_buffer_state(b, err) == 0)
     {
@@ -76,12 +75,12 @@ char get_char_from_buffer(buffer_type *b, error_type *err)
     }
     else
     {
-        err->error = BUF_EMPTY;
+        *err = BUF_EMPTY;
         return -1;
     }
 }
 
-int print_buffer(buffer_type b, error_type *err)
+int print_buffer(buffer_type b, error_type_t *err)
 {
     if (get_buffer_state(&b, err) == 0)
     {
@@ -103,7 +102,7 @@ int print_buffer(buffer_type b, error_type *err)
     }
 }
 
-int add_string_to_buffer(buffer_type *b, unsigned char *s, error_type *err)
+int add_string_to_buffer(buffer_type *b, unsigned char *s, error_type_t *err)
 {
     if (get_buffer_state(b, err) == 0)
     {
@@ -121,12 +120,12 @@ int add_string_to_buffer(buffer_type *b, unsigned char *s, error_type *err)
     }
     else
     {
-        err->error = BUF_FULL;
+        *err = BUF_FULL;
         return -1;
     }
 }
 
-int get_string_from_buffer(buffer_type *b, unsigned char *dest, int len, error_type *err)
+int get_string_from_buffer(buffer_type *b, unsigned char *dest, int len, error_type_t *err)
 {
     if (get_buffer_state(b, err) == 0)
     {
