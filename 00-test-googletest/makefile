@@ -13,7 +13,7 @@ release: main.o $(PROJ).o
 	gcc main.o $(PROJ).o -o release $(LDFLAGS)
 
 test: Gtest_main.o test_case.o $(PROJ)_test.o libgtest.a
-	g++  $(LDFLAGS) -I $(GTEST_DIR)/include -pthread $(PROJ)_test.o test_case.o Gtest_main.o libgtest.a -o test
+	g++  $(LDFLAGS) -I $(GTEST_DIR)/include -pthread $(PROJ)_test.o test_case.o Gtest_main.o libgtest.a -o test.exe
 
 ########## Normal - Release ###########
 
@@ -42,4 +42,5 @@ libgtest.a:
 ########## Clean ######################
 clean:
 	rm -f *.o
+	rm -f *.exe
 
